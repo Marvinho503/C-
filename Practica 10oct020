@@ -1,0 +1,233 @@
+using Microsoft.VisualBasic;
+using System;
+using System.Runtime.ConstrainedExecution;
+using System.Collections.Generic;
+
+namespace CursoMDN
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            string nombreUsuario = Console.ReadLine();
+            //Ingreso de datos
+            string username = "Marvin";
+            string apellido = "Hernandez";
+            var fecha = DateTime.Now;
+            Console.WriteLine(" Hola " + username);
+            Console.WriteLine($"Hola {username} {apellido} {fecha}");
+            Console.WriteLine("Hola {0} {1} {2:HH:mm}", username, apellido, fecha);
+            Console.WriteLine(" Ingrese su nombre:  ");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("Ingrese su edad: ");
+            int edad = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Usuario {nombre}, su edad es {edad}");
+            
+            //Quitar Espacios inicial  final y medio
+            string saludo = "    Hola a todos   ";
+            Console.WriteLine($"{saludo}");
+            string saludoSinEspacioInicial = saludo.TrimStart();
+            Console.WriteLine($"{saludoSinEspacioInicial}");
+            string saludoSinEspacioFinal = saludo.TrimEnd();
+            Console.WriteLine($"{saludoSinEspacioFinal}");
+            string saludoSinEspacios = saludo.Trim();
+            Console.WriteLine($"{saludoSinEspacios}");
+
+            //convertir texto
+            string decirHola = "Hola a todos!";
+            Console.WriteLine(decirHola);
+            Console.WriteLine(decirHola.ToLower());//convertir a minusculas
+            Console.WriteLine(decirHola.ToUpper());//convertir mayusculas
+
+            //Busqueda de texto
+            string letra = "Arriba la seleccion, el himno de la aficion";
+            Console.WriteLine(letra.Contains("Arriba"));//busqueda
+            Console.WriteLine(letra.Contains("aficion"));//busqueda
+            Console.WriteLine(letra.StartsWith("Arriba"));//busqueda inicial
+            Console.WriteLine(letra.StartsWith("aficion"));//busqueda inicial
+            Console.WriteLine(letra.EndsWith("Arriba"));//busqueda final
+            Console.WriteLine(letra.EndsWith("aficion"));//busqueda final
+
+            
+            var partes = letra.Split(", "); //partir palabras
+            Array.ForEach(partes, Console.WriteLine); //arreglo
+
+            Console.WriteLine("{0}", string.Join(", ", partes));//uniones */
+
+            
+            //Enteros
+            int a = 18;
+            int b = 6;
+            int c = a + b;
+            int d = a + b * c;
+            Console.WriteLine(d);
+            
+            int max = int.MaxValue;
+            int min = int.MinValue;
+            Console.WriteLine($"El rango de enteros es de {min} a {max}");
+
+            //Decimales
+            double a = 5;
+            double b = 4;
+            double c = 2;
+            double d = (a + b) / c;
+            Console.WriteLine(d);
+            decimal c1 = 1.0M;
+            decimal d2 = 3.0M;
+            decimal c3 = c1 / d2;
+            Console.WriteLine(decimal.Round(c3, 2));
+
+            //Fechas por tipos
+            DateTime Fecha = new DateTime(2020, 11, 15, 12, 15, 0);
+            DateTime date1 = DateTime.Now;
+            DateTime date2 = DateTime.Today;
+            DateTime date3 = DateTime.UtcNow;
+            var dateString = "2020/11/20 8:3052 AM";
+            Console.WriteLine("valores: {0} {1} {2} {3} {4}", Fecha, date1, date2, date3, DateTime.Parse(dateString));
+            
+            //Modificaciones de fechas agregar y quitar
+            TimeSpan horadeAlmuerzo = new TimeSpan(12, 30, 0);
+            horadeAlmuerzo = horadeAlmuerzo.Add(new TimeSpan(1, 0, 0));
+            Console.WriteLine(horadeAlmuerzo);
+
+            //IF
+            int a = 5;
+            int b = 6;
+            if (a + b > 10 && a + b > 20) // relacionados: and=&&, Or=||, Not=!
+
+            {
+                Console.WriteLine("La respuesta es mayor a 10");
+            }else if (a + b < 10)
+            {
+                Console.WriteLine("La respuesta es menor a 10");
+            }
+
+            //Bucle While
+            int counter = 0;
+            while (counter < 10)
+            {
+                Console.WriteLine($"El conteo es {counter}");
+                counter++;
+            }
+
+            //Bucle For
+            for (int counter = 0; counter < 10; counter++)
+            {
+                Console.WriteLine($"El conteo es {counter}");
+            }
+
+            //Bucle anidado en For
+            for (int row =1; row < 11; row++)
+            {
+                for(char column = 'a'; column < 'k'; column++)
+                {
+                    Console.WriteLine($"La celda es ({row}, {column})");
+
+                }
+            }
+            
+            //Listas
+            var names = new List<string> { "<nombre>", "Ana", "Felipe" };
+            names.Add("Jose");
+            names.Remove("Ana");
+            foreach(var name in names)
+            {
+                Console.WriteLine($"Hola {name}!");
+
+            }
+
+            Console.WriteLine($"Hola {names[1]}");
+            names[1] = "Marvin";
+            names.Sort();
+            Console.WriteLine($"Hola {names.Count}!");
+
+            //Arreglos
+            int[] edades;
+            edades = new int[5];
+            var datos = new[] { "Jose", "Maria" };
+            bool[] acc = new bool[2];
+
+            var personas = new[]
+            {
+                new{nombre="Jose", edad=35},
+                new{nombre="Maria", edad=30},
+                new{nombre="Pedro", edad=40},
+
+            };
+
+            for (int i=0; i<datos.Length; i++)
+            {
+                Console.WriteLine(datos[i]);
+            }
+
+            //Arreglos de dos dimensiones.
+            double[,] dat;
+            dat = new double[5, 2];
+            dat[0, 0] = 12.5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+    }
+} //Crear una clase
+class Empleados
+{
+    string nombre;
+    int edad;
+
+    public Empleados(string n, int e)
+    {
+        nombre = n;
+        edad = e;
+
+
+    }
+}
